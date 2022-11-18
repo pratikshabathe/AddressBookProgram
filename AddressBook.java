@@ -8,7 +8,7 @@ public class AddressBook {
 	  int zip;
 	  long phNum;
 
-	  Scanner sc = new Scanner(System.in);
+	  static Scanner sc = new Scanner(System.in);
 	
 	public static void main(String[] args) {
 		
@@ -17,6 +17,7 @@ public class AddressBook {
 		  AddressBook obj = new AddressBook();
 		  obj.getInputs();
 		  
+		  System.out.println("What was entered :" +obj.fName + " " + obj.lName + " " + obj.address + " " +obj.city + " " + obj.state + " " + obj.email + " " +obj.zip + " " +obj.phNum);
 		}
 	
 		  void getInputs() {

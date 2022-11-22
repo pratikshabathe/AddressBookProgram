@@ -22,13 +22,19 @@ public class AddressBook {
 			case "1":
 				Contact obj = new Contact();
 				obj.getInputs();
-				System.out.println("What was entered :" +obj.fName + " "  +obj.lName + " " + obj.address +" " + obj.city+ " " +obj.state +" " +obj.email +" " +obj.zip + " " +obj.phNum);
+				System.out.println("Here's What been added :" +obj.fName + " "  +obj.lName + " " + obj.address +" " + obj.city+ " " +obj.state +" " +obj.email +" " +obj.zip + " " +obj.phNum);
  
 				contacts = obj.addContact(contacts, obj);
 				break;
-
+			
+			case "edit":
+			case "2" :
+				obj = new Contact();
+				contacts = obj.editContact(contacts);
+				break;
+				
 			case "quit":
-			case "2":
+			case "3":
 				choice = "quit";
 				break;
 

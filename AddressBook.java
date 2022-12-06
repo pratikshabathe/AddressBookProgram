@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class AddressBook {
 
 	public static void main(String[] args) {
-
+		
 		System.out.println("--Welcom to address book program--");
 		Scanner sc = new Scanner(System.in);
 		Contact[] contacts = new Contact[25];
@@ -13,10 +13,9 @@ public class AddressBook {
 		choice = sc.next();
  
 		while(!choice.equals("quit")) {
-
 			System.out.println("\n1.add \n2. quit \nEnter your choice : ");
 			choice = sc.next();
- 
+			
 			switch (choice) {
 			case "add" :
 			case "1":
@@ -30,11 +29,23 @@ public class AddressBook {
 			case "edit":
 			case "2" :
 				obj = new Contact();
-				contacts = obj.editContact(contacts);
+				contacts = obj.showEditDelete(contacts, "edit");
+				break;
+				
+			case "delete":
+			case "3" :
+				obj = new Contact();
+				contacts = obj.showEditDelete(contacts, "delete");
+				break;
+				
+			case "show":
+			case "4" :
+				obj = new Contact();
+				contacts = obj.showEditDelete(contacts, "show");
 				break;
 				
 			case "quit":
-			case "3":
+			case "5":
 				choice = "quit";
 				break;
 

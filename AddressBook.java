@@ -1,5 +1,7 @@
 package com.blz.addressbook;
 
+import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class AddressBook {
@@ -8,22 +10,27 @@ public class AddressBook {
 		
 		System.out.println("--Welcom to address book program--");
 		Scanner sc = new Scanner(System.in);
-		Contact[] contacts = new Contact[25];
+		
+		ArrayList<Contact> contacts = new ArrayList<>();
 		String choice = "add";
-		choice = sc.next();
+		//choice = sc.next();
  
 		while(!choice.equals("quit")) {
-			System.out.println("\n1.add \n2. quit \nEnter your choice : ");
-			choice = sc.next();
+			System.out.println("\n1.add \n2. edit \n3. delete \n4. show \n5. quit \nEnter your choice : ");
+			choice = sc.next().toLowerCase();
 			
 			switch (choice) {
 			case "add" :
 			case "1":
 				Contact obj = new Contact();
+				try {
 				obj.getInputs();
 				System.out.println("Here's What been added :" +obj.fName + " "  +obj.lName + " " + obj.address +" " + obj.city+ " " +obj.state +" " +obj.email +" " +obj.zip + " " +obj.phNum);
  
 				contacts = obj.addContact(contacts, obj);
+				}catch (InputMismatchException e) {
+					System.out.println("Enter a numeric value for zip code and phone number next time.");
+				}
 				break;
 			
 			case "edit":
